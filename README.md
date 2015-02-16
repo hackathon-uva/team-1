@@ -10,24 +10,26 @@ CTH Team Dashboard
 
 ## Requirements
 
+## Team members
+
+- Vlademir
+- Robert-Jan
+- Erik
+- Angeliki
+- Roel
+- Flip
+- Cameron
+
 ## Division of labor
 
 ### Backend
 
 #### Personnel
 
-- __Cameron__
-- Roel
-- Robert-Jan
-
 #### Objectives
 
 ### UI
 
 #### Personnel
-
-- __Reika__
-- Angeliki
-- Erik
 
 #### Objectives
