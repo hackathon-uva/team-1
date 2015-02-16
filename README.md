@@ -8,17 +8,17 @@ CTH Team Dashboard
 ### Backend
 
 #### Personnel
-    + __Cameron__
-    + Roel
-    + Robert-Jan
+    * __Cameron__
+    * Roel
+    * Robert-Jan
 
 #### Objectives
 
 ### UI
 
 #### Personnel
-    + __Reika__
-    + Angeliki
-    + Erik
+    * __Reika__
+    * Angeliki
+    * Erik
 
 #### Objectives
