@@ -6,7 +6,7 @@ CTH Team Dashboard
 - determine MVP
 - work packets/divide labor
 - agree interfaces
-- code code code
+- code, code, code
 
 ## Requirements
 
