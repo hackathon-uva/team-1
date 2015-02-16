@@ -1,6 +1,13 @@
 CTH Team Dashboard
 ==================
 
+## Process
+
+- determine MVP
+- work packets/divide labor
+- agree interfaces
+- code code code
+
 ## Requirements
 
 ## Division of labor
