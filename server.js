@@ -1,5 +1,3 @@
-#!/usr/bin/node 
-
 var _ = require('lodash');
 var app = require('express')();
 var http = require('require').Server(app);
@@ -38,45 +36,18 @@ function generateUUID() {
 
 function generateStatement(actor,verb,object,timestamp,context){
     var bones = _.deepClone(statementSkeleton);
-    bones.id = generateUUID();
-    bones.actor.name = actor.displayName;
-    bones.actor.account.homePage = obtainRestEndpoint("persons");
-    bones.actor.account.name = actor.id;
-    bones.verb.id = "http://adlnet.gov/expapi/verbs/" + verb;
-    bones.verb.display["en-US"] = verb;
-    bones.timestamp = timestamp; // always specify
-    bones.object.objectType = (object.hasOwnProperty('affiliations')) ? "Agent"
-        : (isUUID(object.id)) ? "StatementRef"
-        : "Activity";
-    if (bones.object.objectType == "Agent") {
-        bones.object.name = object.displayName;
-        bones.object.account = {
-            homePage: obtainRestEndpoint("persons"),
-            name: object.id
-        };
-    } else if (bones.object.objectType == "StatementRef") {
-        bones.object.id = object.id;
-    } else {
-        bones.object.id = object.url;
-    }
-    if (typeof context !== 'undefined') {
-        bones.context = context;
-    }
+    // do things here
     return bones;
 }
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.get('/',function(req,res){
-    res.sendfile('public/index.html')
+    res.sendfile('public/index.html');
 });
 
 var users = {};
 var course = {};
 var shop = {};
-
-
-
-
 
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
