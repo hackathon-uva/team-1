@@ -56,7 +56,6 @@ var users = {};
 var course = {};
 var shop = {};
 
-
 var data = {
     users: {
     },
@@ -80,17 +79,18 @@ data.shop[shaggy] = {item:"this is an item"};
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
     
-    socket.on('mockDataRequest', function(){
+    //socket.on('mockDataRequest', function(){
         socket.emit("mockData",data);
-    });
+    //});
 
     socket.on('userReg',function(data){
-       var newUUID = generateUUID(); 
-       users[newUUID] = data.user;
-       users[newUUID].courses.push(data.course);
-       tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+        var newUUID = generateUUID(); 
+        users[newUUID] = data.user;
+        users[newUUID].courses.push(data.course);
+        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
     });
     socket.on('userLogin',function(data){
+        var session = socket.id;
         
     });
     socket.on('userPost',function(data){
