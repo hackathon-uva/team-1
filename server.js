@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var app = require('express')();
-var http = require('require').Server(app);
+var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var tincan = require('tincanjs');
 var moment = require('moment');
