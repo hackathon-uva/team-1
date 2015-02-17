@@ -3,15 +3,15 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var tincan = require('tincanjs');
 var moment = require('moment');
 
-tincan({recordStores:[{
-     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
-     username: "larissa",
-     password: "lrstester",
-     allowFail: false
-}]});
+//var tincan = require('tincanjs');
+//tincan({recordStores:[{
+//     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
+//     username: "larissa",
+//     password: "lrstester",
+//     allowFail: false
+//}]});
 
 var statementSkeleton = {
     "id": "<uuid>",
@@ -56,12 +56,39 @@ var users = {};
 var course = {};
 var shop = {};
 
+var splat = generateUUID();
+var blork = generateUUID();
+
+var data = {
+    users: {
+    },
+    course: {
+    },
+    shop: {
+    }
+};
+
+data.users[splat] = {account: {name:"bleedledeedledee", homePage:"shoobydoobydoo"}};
+data.users[blork] = {account: {name:"blittablattablunt", homePage:"shiggidybloo"}};
+data.course.name = "Ayy Lmao"
+data.course.feed = {};
+var giggidy = generateUUID();
+data.course.feed[giggidy] = {message:"Splagtastic ayyy lmao",name:data.users[splat].account.name,timestamp:new Date().toISOString()};
+var shaggy = generateUUID();
+data.shop[shaggy] = {item:"this is an item"};
+
+
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
+    
+    socket.on('mockDataRequest', function(){
+        socket.emit("mockData",data);
+    });
+
     socket.on('userReg',function(data){
        var newUUID = generateUUID(); 
-//        users[newUUID] = data.user;
-//        users[newUUID].courses.push(data.course);
+       users[newUUID] = data.user;
+       users[newUUID].courses.push(data.course);
 //        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
     });
     socket.on('userLogin',function(data){
