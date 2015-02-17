@@ -10,22 +10,28 @@
 	  	var userData = {
 	  		user: {
 	  			account: {
-	  				name: "Klaas Tester",
-	  				homePage: "url"
+	  				name: 'Klaas Tester',
+	  				homePage: 'url'
 	  			}
 	  		},
 	  		course: {
-	  			objectType: "Activity",
-	  			id: "wetenschapsfilosofie"
+	  			objectType: 'Activity',
+	  			id: 'wetenschapsfilosofie'
 	  		}
 	  	};
 	  	socket.emit('userReg', userData);
 	  	socket.on('regUser', function(data){
+	  		console.log('all data received');
 	  		console.log(data);
+	  		// vm = data;
 	  		socket.emit('userPost', {
 	  			user: userData,
 	  			message: "Some very cool message!"
 	  		});
+	  	});
+	  	socket.on('updFeed', function(data){
+	  		console.log('feedupdate required');
+	  		console.log(data);
 	  	});
 	  	
 		return vm;
