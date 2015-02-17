@@ -75,7 +75,7 @@ app.use('/', express.static(__dirname + '/public'));
 var users = {};
 
 var courses = {
-    "Wetenschapsfilosofie": {}
+    "wetenschapsfilosofie": {}
 };
 
 var shop = {};
@@ -91,12 +91,13 @@ io.on('connection', function(socket){
     
     socket.on('userReg',function(data){
         var newUUID = generateUUID();
-
-//        users[newUUID] = data.user;
-//        users[newUUID].courses.push(data.course);
-//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
-//        var uData = {users: users, courses: courses, shop: shop};
-//        socket.emit('regUser',uData);
+        users[newUUID] = data.user;
+        if (!users[newUUID].hasOwnProperty('courses')) { users[newUUID].courses = {}; }
+        users[newUUID].courses[data.course.id] = data.course;
+        courses[data.course.id] = newUUID;
+        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+        var uData = {users: users, courses: courses, shop: shop};
+        socket.emit('regUser',uData);
     });
     socket.on('userLogin',function(data){
         var session = socket.id;
