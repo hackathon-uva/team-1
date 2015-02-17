@@ -3,15 +3,15 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var tincanjs = require('./node_modules/tincanjs/build/tincan-node.js')({recordStores:[{endpoint: "http://46.149.27.91:8080/larissa/xAPI",username:"larissa",password:"lrstester",allowFail:false}]});
+var tincan = require('tincanjs');
 var moment = require('moment');
 
-//var tincan = new TinCan({recordStores:[{
-//     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
-//     username: "larissa",
-//     password: "lrstester",
-//     allowFail: false
-//}]});
+tincan({recordStores:[{
+     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
+     username: "larissa",
+     password: "lrstester",
+     allowFail: false
+}]});
 
 var statementSkeleton = {
     "id": "<uuid>",
