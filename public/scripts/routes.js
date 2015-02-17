@@ -29,8 +29,7 @@
         }
       });
 
-
     $urlRouterProvider.when('/', '/feed');
-    // $urlRouterProvider.otherwise('/home');
   }
+  
 })();
