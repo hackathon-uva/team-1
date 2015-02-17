@@ -23,7 +23,7 @@
 	  	socket.on('regUser', function(data){
 	  		console.log('all data received');
 	  		console.log(data);
-	  		// vm = data;
+	  		vm = data;
 	  		socket.emit('userPost', {
 	  			payload: userData,
 	  			message: "Some very cool message!"
