@@ -4,14 +4,14 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var moment = require('moment');
+var TinCan = require('tincanjs');
 
-//var tincan = require('tincanjs');
-//tincan({recordStores:[{
-//     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
-//     username: "larissa",
-//     password: "lrstester",
-//     allowFail: false
-//}]});
+var tincan = new TinCan ({recordStores:[{
+     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
+     username: "larissa",
+     password: "lrstester",
+     allowFail: false
+}]});
 
 var statementSkeleton = {
     "id": "<uuid>",
@@ -42,7 +42,7 @@ function generateUUID() {
     return uuid;
 }
 
-function generateStatement(actor,verb,object,timestamp,context){
+function generateStatement(actor,verb,object,context){
     var bones = _.deepClone(statementSkeleton);
     // do things here
     return bones;
@@ -56,8 +56,6 @@ var users = {};
 var course = {};
 var shop = {};
 
-var splat = generateUUID();
-var blork = generateUUID();
 
 var data = {
     users: {
@@ -68,6 +66,8 @@ var data = {
     }
 };
 
+var splat = generateUUID();
+var blork = generateUUID();
 data.users[splat] = {account: {name:"bleedledeedledee", homePage:"shoobydoobydoo"}};
 data.users[blork] = {account: {name:"blittablattablunt", homePage:"shiggidybloo"}};
 data.course.name = "Ayy Lmao"
@@ -76,7 +76,6 @@ var giggidy = generateUUID();
 data.course.feed[giggidy] = {message:"Splagtastic ayyy lmao",name:data.users[splat].account.name,timestamp:new Date().toISOString()};
 var shaggy = generateUUID();
 data.shop[shaggy] = {item:"this is an item"};
-
 
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
@@ -89,10 +88,10 @@ io.on('connection', function(socket){
        var newUUID = generateUUID(); 
        users[newUUID] = data.user;
        users[newUUID].courses.push(data.course);
-//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+       tincan.sendStatement(generateStatement(data.user,"registered",data.course));
     });
     socket.on('userLogin',function(data){
-
+        
     });
     socket.on('userPost',function(data){
     });
