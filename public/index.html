@@ -4,23 +4,43 @@
 	<meta charset="UTF-8">
 	<title>Kudos.me</title>
 	<base href="/"></base>
+
+    <link data-require="bootstrap@3.3.1" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
 </head>
 
 <body ng-cloak ng-app="kudos">
-	
-	<div class="nav">
-		<div ui-sref="feed">Feed</div>
-		<div ui-sref="users">Users</div>
-		<div ui-sref="shop">Shop</div>
-		<hr>
-	</div>
 
 
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div >
+            <ul class="nav navbar-nav">
+                <li ui-sref="feed" ui-sref-active="active"><a href>Feed</a></li>
+                <li ui-sref="users" ui-sref-active="active"><a href>Users</a></li>
+                <li ui-sref="shop" ui-sref-active="active"><a href>Shop</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><img src="http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg" width="25" height="25" class="img-circle hidden-xs" style="margin: 10px;"></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
-	<main ui-view autoscroll class="viewContainer"></main>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <main ui-view autoscroll class="viewContainer"></main>
+
+        </div>
+    </div>
+</div>
+
 
 	<script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="scripts/app.js"></script>
 	<script src="scripts/routes.js"></script>
