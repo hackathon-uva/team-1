@@ -48,14 +48,6 @@ function generateStatement(actor,verb,object,context){
     return bones;
 }
 
-app.use('/node_modules', express.static(__dirname + '/node_modules'));
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
-app.use('/', express.static(__dirname + '/public'));
-
-var users = {};
-var course = {};
-var shop = {};
-
 var data = {
     users: {
     },
@@ -76,22 +68,39 @@ data.course.feed[giggidy] = {message:"Splagtastic ayyy lmao",name:data.users[spl
 var shaggy = generateUUID();
 data.shop[shaggy] = {item:"this is an item"};
 
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/', express.static(__dirname + '/public'));
+
+var users = {};
+
+var courses = {
+    "Wetenschapsfilosofie": {}
+};
+
+var shop = {};
+
+
+
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
-    
-    //socket.on('mockDataRequest', function(){
-        socket.emit("mockData",data);
-    //});
 
+    socket.on('mockDataRequest', function(){
+        socket.emit("mockData",data);
+    });
+    
     socket.on('userReg',function(data){
-        var newUUID = generateUUID(); 
-        users[newUUID] = data.user;
-        users[newUUID].courses.push(data.course);
-        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+        var newUUID = generateUUID();
+
+//        users[newUUID] = data.user;
+//        users[newUUID].courses.push(data.course);
+//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+//        var uData = {users: users, courses: courses, shop: shop};
+//        socket.emit('regUser',uData);
     });
     socket.on('userLogin',function(data){
         var session = socket.id;
-        
+//        data.name = 
     });
     socket.on('userPost',function(data){
     });
