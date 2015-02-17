@@ -1,6 +1,16 @@
 CTH Team Dashboard
 ==================
 
+## Team members
+
+- Vlademir
+- Robert-Jan
+- Erik
+- Angeliki
+- Roel
+- Flip
+- Cameron
+
 ## Process
 
 - determine MVP
@@ -22,16 +32,8 @@ CTH Team Dashboard
     - generate 1pt/min
     - normalize for people in course
     - engagement reward: points for sending transactions, weighted by how many points received
-
-## Team members
-
-- Vlademir
-- Robert-Jan
-- Erik
-- Angeliki
-- Roel
-- Flip
-- Cameron
+- transactions logged in LRS as statements 
+    - comments? logged as statements with the context set to a statementref to the relevant transaction
 
 ## Division of labor
 
