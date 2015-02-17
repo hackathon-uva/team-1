@@ -11,6 +11,12 @@ app.get('/',function(req,res){
 
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
+    socket.on('userReg',function(data){});
+    socket.on('userLogin',function(data){});
+    socket.on('userPost',function(data){});
+    socket.on('userComment',function(data){});
+    socket.on('userPoints',function(data){});
+    socket.on('userBuy',function(data){});
 });
 
 http.listen(8080,function(){
