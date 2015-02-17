@@ -21,7 +21,7 @@
 	  	};
 	  	socket.emit('userReg', userData);
 	  	socket.on('regUser', function(data){
-	  		console.log(userData);
+	  		console.log(data);
 	  	});
 	  	
 		return vm;
