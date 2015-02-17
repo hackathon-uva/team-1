@@ -3,7 +3,6 @@ CTH Team Dashboard
 
 ## Team members
 
-- Vlademir
 - Robert-Jan
 - Erik
 - Angeliki
@@ -31,6 +30,7 @@ CTH Team Dashboard
     - 10 point max
     - generate 1pt/min
     - normalize for people in course
+    - normalize on sending points
     - engagement reward: points for sending transactions, weighted by how many points received
 - transactions logged in LRS as statements 
     - comments? logged as statements with the context set to a statementref to the relevant transaction
