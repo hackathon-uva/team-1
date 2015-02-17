@@ -3,8 +3,15 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var tincan = require('tincanjs');
+//var tincanjs = require('./node_modules/tincanjs/build/tincan.js')({recordStores:[{endpoint: "http://46.149.27.91:8080/larissa/xAPI",username:"larissa",password:"lrstester",allowFail:false}]});
 var moment = require('moment');
+
+//var tincan = new TinCan({recordStores:[{
+//     endpoint: "http://46.149.27.91:8080/larissa/xAPI",
+//     username: "larissa",
+//     password: "lrstester",
+//     allowFail: false
+//}]});
 
 var statementSkeleton = {
     "id": "<uuid>",
@@ -42,9 +49,8 @@ function generateStatement(actor,verb,object,timestamp,context){
 }
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
-app.get('/',function(req,res){
-    res.sendfile('public/index.html');
-});
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/', express.static(__dirname + '/public'));
 
 var users = {};
 var course = {};
@@ -53,13 +59,22 @@ var shop = {};
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
     socket.on('userReg',function(data){
-        
+       var newUUID = generateUUID(); 
+//        users[newUUID] = data.user;
+//        users[newUUID].courses.push(data.course);
+//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
     });
-    socket.on('userLogin',function(data){});
-    socket.on('userPost',function(data){});
-    socket.on('userComment',function(data){});
-    socket.on('userPoints',function(data){});
-    socket.on('userBuy',function(data){});
+    socket.on('userLogin',function(data){
+
+    });
+    socket.on('userPost',function(data){
+    });
+    socket.on('userComment',function(data){
+    });
+    socket.on('userPoints',function(data){
+    });
+    socket.on('userBuy',function(data){
+    });
 });
 
 http.listen(8080,function(){
