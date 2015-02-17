@@ -24,11 +24,9 @@
         controller: "ShopCtrl as shop"
       })
       .state("profile", {
-        url: "/profile",
         templateUrl: "../templates/profile.html",
         controller: "ProfileCtrl as profile"
       });
-
     $urlRouterProvider.when('/', '/feed');
   }
   
