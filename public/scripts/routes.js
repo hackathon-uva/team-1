@@ -10,22 +10,26 @@
     $stateProvider
       .state("feed", {
           url: "/feed",
-          templateUrl: "../templates/feed.html"
+          templateUrl: "../templates/feed.html",
+          controller: "FeedCtrl as feed"
         }
       })
       .state("users", {
           url: "/users",
-          templateUrl: "../templates/users.html"
+          templateUrl: "../templates/users.html",
+          controller: "UserCtrl as user"
         }
       })
       .state("shop", {
           url: "/shop",
-          templateUrl: "../templates/shop.html"
+          templateUrl: "../templates/shop.html",
+          controller: "ShopCtrl as shop"
         }
       })
       .state("profile", {
           url: "/profile",
-          templateUrl: "../templates/profile.html"
+          templateUrl: "../templates/profile.html",
+          controller: "ProfileCtrl as profile"
         }
       });
 
