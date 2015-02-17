@@ -8,6 +8,11 @@
     $locationProvider.html5Mode(true);
     
     $stateProvider
+      .state("login", {
+        url: "/login",
+        templateUrl: "../templates/login.html",
+        controller: "loginCtrl as login"
+      })
       .state("feed", {
         url: "/feed",
         templateUrl: "../templates/feed.html",
