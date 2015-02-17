@@ -4,6 +4,7 @@
   "description": "Ten Points to Gryffindor",
   "dependencies": {
     "express": "^4.11.2",
-    "socket.io": "^1.3.4"
+    "socket.io": "^1.3.4",
+    "tincanjs": "^0.32.0"
   }
 }
