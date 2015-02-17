@@ -25,7 +25,7 @@
 	  		console.log(data);
 	  		// vm = data;
 	  		socket.emit('userPost', {
-	  			user: userData,
+	  			payload: userData,
 	  			message: "Some very cool message!"
 	  		});
 	  	});
