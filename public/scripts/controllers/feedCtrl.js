@@ -19,11 +19,9 @@
 	  			id: "wetenschapsfilosofie"
 	  		}
 	  	};
-
 	  	socket.emit('userReg', userData);
-
 	  	socket.on('regUser', function(data){
-	  		console.log(data);
+	  		console.log(userData);
 	  	});
 	  	
 		return vm;
