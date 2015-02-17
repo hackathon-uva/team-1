@@ -95,7 +95,7 @@ io.on('connection', function(socket){
         if (!users[newUUID].hasOwnProperty('courses')) { users[newUUID].courses = {}; }
         users[newUUID].courses[data.course.id] = data.course;
         courses[data.course.id] = newUUID;
-        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
         var uData = {users: users, courses: courses, shop: shop};
         socket.emit('regUser',uData);
     });
