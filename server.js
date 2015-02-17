@@ -118,12 +118,14 @@ io.on('connection', function(socket){
 //        data.name = 
     });
     socket.on('userPost',function(data){
+        console.log(data);
         var time = new Date().toISOString();
-        courses[data.course.id].feed[time] = {
-            user: data.user,
+
+        courses[data.payload.course.id].feed[time] = {
+            user: data.payload.user,
             message: data.message
         };
-        socket.emit('updFeed',courses[data.course.id].feed);
+        socket.emit('updFeed',courses[data.payload.course.id].feed);
     });
     socket.on('userComment',function(data){
     });
