@@ -43,7 +43,8 @@ function generateUUID() {
 }
 
 function generateStatement(actor,verb,object,context){
-    var bones = _.deepClone(statementSkeleton);
+//    var bones = _.deepClone(statementSkeleton);
+    var bones = statementSkeleton;
     // do things here
     bones.actor = actor;
     bones.verb = {
@@ -109,7 +110,7 @@ io.on('connection', function(socket){
         courses[data.course.id].users.push(newUUID);
         // HC SVNT MOCKVS DATVM
         courses[data.course.id].feed[new Date().toISOString()] = "HC SVNT MOCKVS DATVM";
-        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
         var uData = {users: users, courses: courses, shop: shop};
         socket.emit('regUser',uData);
     });
