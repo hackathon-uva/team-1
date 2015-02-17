@@ -22,6 +22,10 @@
 	  	socket.emit('userReg', userData);
 	  	socket.on('regUser', function(data){
 	  		console.log(data);
+	  		socket.emit('userPost', {
+	  			user: userData,
+	  			message: "Some very cool message!"
+	  		});
 	  	});
 	  	
 		return vm;
