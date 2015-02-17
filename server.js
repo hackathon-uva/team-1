@@ -80,8 +80,6 @@ var courses = {
 
 var shop = {};
 
-
-
 io.on('connection', function(socket){
     console.log("SMOKE CRACK AND HAIL XENU");
 
@@ -94,7 +92,12 @@ io.on('connection', function(socket){
         users[newUUID] = data.user;
         if (!users[newUUID].hasOwnProperty('courses')) { users[newUUID].courses = {}; }
         users[newUUID].courses[data.course.id] = data.course;
-        courses[data.course.id] = newUUID;
+        if (!courses.hasOwnProperty(data.course.id)) {
+            courses[data.course.id] = {users:[],feed:{}};
+        }
+        courses[data.course.id].users.push(newUUID);
+        // HC SVNT MOCKVS DATVM
+        courses[data.course.id].feed[new Date().toISOString()] = "HC SVNT MOCKVS DATVM";
 //        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
         var uData = {users: users, courses: courses, shop: shop};
         socket.emit('regUser',uData);
