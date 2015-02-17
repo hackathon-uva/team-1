@@ -75,7 +75,7 @@ app.use('/', express.static(__dirname + '/public'));
 var users = {};
 
 var courses = {
-    "wetenschapsfilosofie": {}
+    "wetenschapsfilosofie": {users:[],feed:{}}
 };
 
 var shop = {};
@@ -98,7 +98,7 @@ io.on('connection', function(socket){
         courses[data.course.id].users.push(newUUID);
         // HC SVNT MOCKVS DATVM
         courses[data.course.id].feed[new Date().toISOString()] = "HC SVNT MOCKVS DATVM";
-//        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
+        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
         var uData = {users: users, courses: courses, shop: shop};
         socket.emit('regUser',uData);
     });
