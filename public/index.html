@@ -7,11 +7,15 @@
 </head>
 
 <body ng-cloak ng-app="kudos">
-
-	<p>hello</p>
 	
-	<main ui-view autoscroll class="appcontainer"></main>
+	<div class="nav">
+		<div ui-sref="feed">Feed</div>
+		<div ui-sref="users">Users</div>
+		<div ui-sref="shop">Shop</div>
+	</div>
 
+
+	<main ui-view autoscroll class="viewContainer"></main>
 
 	<script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
