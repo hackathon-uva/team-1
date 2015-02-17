@@ -109,7 +109,6 @@ io.on('connection', function(socket){
         }
         courses[data.course.id].users.push(newUUID);
         // HC SVNT MOCKVS DATVM
-        courses[data.course.id].feed[new Date().toISOString()] = "HC SVNT MOCKVS DATVM";
 //        tincan.sendStatement(generateStatement(data.user,"registered",data.course));
         var uData = {users: users, courses: courses, shop: shop};
         socket.emit('regUser',uData);
@@ -119,6 +118,12 @@ io.on('connection', function(socket){
 //        data.name = 
     });
     socket.on('userPost',function(data){
+        var time = new Date().toISOString();
+        courses[data.course.id].feed[time] = {
+            user: data.user,
+            message: data.message
+        };
+        socket.emit('updFeed',courses[data.course.id].feed);
     });
     socket.on('userComment',function(data){
     });
