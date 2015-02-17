@@ -41,9 +41,15 @@ CTH Team Dashboard
 
 #### Personnel
 
+- Robert-Jan
+- Cameron
+
 #### Objectives
 
 ### UI
+
+- Erik
+- Roel
 
 #### Personnel
 
