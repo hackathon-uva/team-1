@@ -4,7 +4,7 @@ var app = require('express')();
 var http = require('require').Server(app);
 var io = require('socket.io')(http);
 
-app.use('/node_modules', express.static(__dirname + 'node_modules'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.get('/',function(req,res){
     res.sendfile('public/index.html')
 });
