@@ -20,9 +20,13 @@ angular.module('kudos').directive('givePoints', function() {
 
 			function distributePoints(event) {
 			  // Calculate where the cursor is now relative from the start of the bar
-	    		console.log(event);
-				var cursor = event.offsetX;
-				var right = event.target.clientWidth;
+	    		// console.log(event);
+
+	    		// Im doing something hacky here. Because the element that the event runs on has childeren
+	    		// the values get severly disturbed. So I hardcoded the offset. 
+
+				var cursor = event.x - 260;
+				var right = element[0].clientWidth;
 
 				// Calculate percentage of points that will be distributed through givePoints()
 				var points = ((cursor / right) * availablePoints);
