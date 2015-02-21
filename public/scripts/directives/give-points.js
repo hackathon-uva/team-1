@@ -22,26 +22,22 @@ angular.module('kudos').directive('givePoints', function() {
 	    		// Im doing something hacky here. Because the element that the event runs on has childeren
 	    		// the values get severly disturbed. So I hardcoded the offset. 
 
-	    		console.log('event' + (event.x - 65));
-	    		console.log('element' + element[0].clientWidth);
-
 				var cursor = event.x - 65;
 				var elementWidth = element[0].clientWidth;
 
 				// Calculate percentage of points that will be distributed through givePoints()
-				var points = 0;
-				points = ((cursor / elementWidth) * 10);
-				points = Math.round(points);
+				percentageOfPoints = ((cursor / elementWidth) * 100);
+				percentageOfPoints = Math.round(percentageOfPoints);
 
-				console.log('points' + points);
 				// Set given points to a certain value
-				if(points <= availablePoints){
+				if((percentageOfPoints / 10) <= availablePoints){
 				  	// console.log('statement evaluates true');
-				    givenPoints = points;
-				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((points*10) - 1) +'%, rgb(208, 208, 208) '+ ((points*10) + 1)+'%)';
+				    givenPoints = Math.round(percentageOfPoints / 10);
+				    console.log('givenPoints: ' + givenPoints);
+				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((percentageOfPoints) - 1) +'%, rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
 				}
 				else {
-					element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((availablePoints*10) - 1) +'%, black '+ ((availablePoints*10) + 1)+'%, black '+ ((points*10) - 1) +'% ,rgb(208, 208, 208) '+ ((points*10) + 1)+'%)';
+					element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((availablePoints*10) - 1) +'%, rgba(0,0,0,0.5) '+ ((availablePoints*10) + 1)+'%, rgba(0,0,0,0.5) '+ ((percentageOfPoints) - 1) +'% ,rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
 				}
 			}
 
