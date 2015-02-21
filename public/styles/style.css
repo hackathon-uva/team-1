@@ -126,12 +126,23 @@ body {
 
 .usersList {
   list-style: none;
+  padding: 0;
+}
+
+.user {
+  padding: 10px 0;
+  border-bottom: 1px solid #9a9a9a;
+}
+
+.user * {
+  float: left;
 }
 
 .avatar {
   border-radius: 300px;
   width: 50px;
 }
+
 .name {
   margin-left: 20px;
 }
