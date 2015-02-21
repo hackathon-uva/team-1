@@ -4,72 +4,75 @@
 // onmousemove="distributePoints()" onclick="grantPoints()" onmouseleave="fuckOff()"
 
 angular.module('kudos').directive('givePoints', function() {
-  return {
-    restrict: 'A',
-    link: function ($scope, element, attrs) {
+  	return {
+	    restrict: 'A',
+	    link: function ($scope, element, attrs) {
 
-        element.bind('mousemove', distributePoints);
-        element.bind('click', grantPoints);
-        element.bind('mouseleave', done);
+	        element.bind('mousemove', distributePoints);
+	        element.bind('click', grantPoints);
+	        element.bind('mouseleave', done);
 
-        var availablePoints = 10,
-		    givenPoints = 0,
-		    grantedPoints = 0;
+	        var availablePoints = 10,
+			    givenPoints = 0,
+			    grantedPoints = 0;
 
-		var div = element;
+			var div = element;
 
-		function distributePoints() {
-		  console.log('distribute points triggered');
-		  //calculate where the cursor is now relative from the start of the bar
+			function distributePoints(event) {
+			  // console.log('distribute points triggered');
+			  // console.log(event.target);
 
-		  // var cursor = event.clientX;
-		  // var right = div.clientWidth;
+			  // Calculate where the cursor is now relative from the start of the bar
 
-		  //calculate percentage of points that will be distributed through givePoints()
+			  console.log(event);
 
-		  // var points = ((cursor / right) * availablePoints);
-		  // points = Math.round(points);
+			  var cursor = event.offsetX;
+			  var right = event.target.clientWidth;
 
-		  //set given points to a certain value
+			  // Calculate percentage of points that will be distributed through givePoints()
 
-		  // if(points <= availablePoints){
-		  //   givenPoints  = points;
-		  //   div.innerHTML = points;
-		  // } 
-		}
+			  var points = ((cursor / right) * availablePoints);
+			  points = Math.round(points);
 
-		function grantPoints() {
-			console.log('grant points triggered');
-			//send given points to some schmuck
+			  // Set given points to a certain value
+			  // console.log(points);
 
-			// if(availablePoints >= givenPoints){
-			// 	grantedPoints += givenPoints;
-			//     availablePoints -= givenPoints;
-			//     document.getElementById("points").innerHTML = grantedPoints;
-			// }
+			  if(points <= availablePoints){
+			  	// console.log('statement evaluates true');
+			    givenPoints  = points;
+			    event.target.innerHTML = points;
+			  } 
+			}
 
-			//set given points to 0
+			function grantPoints(event) {
+				// console.log('grant points triggered');
+				// Send given points to some schmuck
 
-			// div.innerHTML = "";
-			// givenPoints = 0;
-		}
+				// if(availablePoints >= givenPoints){
+				// 	grantedPoints += givenPoints;
+				//     availablePoints -= givenPoints;
+				//     document.getElementById("points").innerHTML = grantedPoints;
+				// }
 
-		function done() {
-			console.log('done points triggered');
-		  	//give points back if not given through grantPoints()
-		  	
-		  	// if(givenPoints != 0){
-		   //  	availablePoints += givenPoints;
-		  	// }
+				// Set given points to 0
 
-		  	//set distributed points to 0
+				// div.innerHTML = "";
+				// givenPoints = 0;
+			}
 
-		  	// div.innerHTML = "";
-		  	// givenPoints = 0;
-		}
+			function done(event) {
+				// console.log('done points triggered');
+			  	// Give points back if not given through grantPoints()
+			  	
+			  	// if(givenPoints != 0){
+			   //  	availablePoints += givenPoints;
+			  	// }
 
+			  	// Set distributed points to 0
 
-
+			  	// div.innerHTML = "";
+			  	// givenPoints = 0;
+			}
         }
-  }
+	}
 });
