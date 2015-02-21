@@ -78,6 +78,10 @@ body {
 
 /* POST Styles */
 
+.post {
+  border-bottom: 1px solid #9a9a9a;
+}
+
 .tekst {
   font-weight:300;
   color: white;

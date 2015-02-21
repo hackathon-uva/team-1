@@ -12,7 +12,7 @@ angular.module('kudos').directive('givePoints', function() {
 	        element.bind('click', grantPoints);
 	        element.bind('mouseleave', mouseOut);
 
-	        var availablePoints = 100,
+	        var availablePoints = 10,
 			    givenPoints = 0,
 			    grantedPoints = 0;
 
@@ -30,7 +30,7 @@ angular.module('kudos').directive('givePoints', function() {
 
 				// Calculate percentage of points that will be distributed through givePoints()
 				var points = 0;
-				points = ((cursor / elementWidth) * 100);
+				points = ((cursor / elementWidth) * 10);
 				points = Math.round(points);
 
 				console.log('points' + points);
@@ -38,8 +38,11 @@ angular.module('kudos').directive('givePoints', function() {
 				if(points <= availablePoints){
 				  	// console.log('statement evaluates true');
 				    givenPoints = points;
-				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ (points - 1) +'%, rgb(208, 208, 208) '+ (points + 1)+'%)';
-				} 
+				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((points*10) - 1) +'%, rgb(208, 208, 208) '+ ((points*10) + 1)+'%)';
+				}
+				else {
+					element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((availablePoints*10) - 1) +'%, black '+ ((availablePoints*10) + 1)+'%, black '+ ((points*10) - 1) +'% ,rgb(208, 208, 208) '+ ((points*10) + 1)+'%)';
+				}
 			}
 
 			function grantPoints(event) {
@@ -50,6 +53,9 @@ angular.module('kudos').directive('givePoints', function() {
 					grantedPoints += givenPoints;
 				    availablePoints -= givenPoints;
 				    console.log('pointsGiven');
+				} else {
+					grantedPoints += availablePoints;
+					availablePoints -= availablePoints;
 				}
 
 				// Set given points to 0
