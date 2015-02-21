@@ -20,7 +20,7 @@ angular.module('kudos').directive('givePoints', function() {
 			  	// Calculate where the cursor is now relative from the start of the bar
 
 	    		// Im doing something hacky here. Because the element that the event runs on has childeren
-	    		// the values get severly disturbed. So I hardcoded the offset. 
+	    		// the values get severly disturbed. So I hardcoded the offset to the position of the element. 
 
 				var cursor = event.x - 65;
 				var elementWidth = element[0].clientWidth;
