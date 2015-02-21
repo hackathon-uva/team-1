@@ -85,8 +85,7 @@ body {
 .tekst {
   font-weight:300;
   color: white;
-  font-family: Roboto;
-  font-style: italic;
+  font-family: Helvetica;
   font-size: 16px;
   line-height: 18px !important;
   color: #666 !important;
@@ -203,4 +202,24 @@ body {
   background: #004E92;
   border-radius: 10px;
   color: white;
+}
+
+/* SHOP */
+
+.itemPic {
+  display:inline-block;
+  margin: 10px;
+  width: 20%;
+  float: left;
+}
+.itemBox {
+  width: 80%;
+}
+
+.container-fluid .jumbotron {
+  padding: 20px;
+}
+
+.jumbotron p {
+  font-size: 16px;
 }

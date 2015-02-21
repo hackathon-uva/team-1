@@ -1,10 +1,15 @@
 <div class="shopContainer">
-    <ul style="list-style:none; padding-left: 0">
-        <li class="item">
+    <ul class="list-unstyled">
+        <li ng-repeat="item in shop.shop" class="item">
             <div class="jumbotron">
-                <img class="itemPic img-responsive" src="http://i.imgur.com/Iy9axC7.png" width="100"/>
-                <h3>Kekke UvA Sweater</h3>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">This is my goal!</a></p>
+                <div class="shopInfo">
+                    <img class="itemPic img-responsive" src="http://i.imgur.com/Iy9axC7.png"/>
+                    <div class="itemBox">
+                        <h3>{{item.name}}</h3>
+                        <p class="tekst">{{item.contents}}</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">This is my goal!</a></p>
+                    </div>
+                </div>
             </div>
         </li>
     </ul>

@@ -30,19 +30,19 @@
 	        feed: [
 	          {
 	            title:    'The first post',
-	            author:   'Karel de Grote',
+	            author:   'Angela Jolie',
 	            contents:   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aut voluptatem velit ex nesciunt enim explicabo expedita recusandae, harum accusantium facilis optio rem nulla sed quis nihil, eius totam necessitatibus.',
 	            date:     'Sat Feb 21 2015 12:41:01 GMT+0100 (CET)'
 	          },
 	          {
 	            title:    'The second post',
-	            author:   'Karel de Grote',
+	            author:   'Hugh Hefner',
 	            contents:   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aut voluptatem velit ex nesciunt enim explicabo expedita recusandae, harum accusantium facilis optio rem nulla sed quis nihil, eius totam necessitatibus.',
 	            date:     'Sat Feb 21 2015 12:41:01 GMT+0100 (CET)'
 	          },
 	          {
 	            title:    'The third post',
-	            author:   'Karel de Grote',
+	            author:   'Harry Potter',
 	            contents:   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aut voluptatem velit ex nesciunt enim explicabo expedita recusandae, harum accusantium facilis optio rem nulla sed quis nihil, eius totam necessitatibus.',
 	            date:     'Sat Feb 21 2015 12:41:01 GMT+0100 (CET)'
 	          }
