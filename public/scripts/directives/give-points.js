@@ -16,16 +16,16 @@ angular.module('kudos').directive('givePoints', function() {
 			    givenPoints = 0,
 			    grantedPoints = 0;
 
-			var div = element;
-
 			function distributePoints(event) {
-			  // Calculate where the cursor is now relative from the start of the bar
-	    		// console.log(event);
+			  	// Calculate where the cursor is now relative from the start of the bar
 
 	    		// Im doing something hacky here. Because the element that the event runs on has childeren
 	    		// the values get severly disturbed. So I hardcoded the offset. 
 
-				var cursor = event.x - 260;
+	    		console.log(event.x);
+	    		console.log(element[0].clientWidth);
+
+				var cursor = event.x - 65;
 				var right = element[0].clientWidth;
 
 				// Calculate percentage of points that will be distributed through givePoints()
@@ -35,7 +35,7 @@ angular.module('kudos').directive('givePoints', function() {
 				// Set given points to a certain value
 				if(points <= availablePoints){
 				  	// console.log('statement evaluates true');
-				    givenPoints  = points;
+				    givenPoints = points;
 				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ (points) +'%, rgb(208, 208, 208) '+ ((points) + (0.1*points))+'%)';
 				} 
 			}
@@ -44,11 +44,11 @@ angular.module('kudos').directive('givePoints', function() {
 				// console.log('grant points triggered');
 				// Send given points to some schmuck
 
-				// if(availablePoints >= givenPoints){
-				// 	grantedPoints += givenPoints;
-				//     availablePoints -= givenPoints;
-				//     document.getElementById("points").innerHTML = grantedPoints;
-				// }
+				if(availablePoints >= givenPoints){
+					grantedPoints += givenPoints;
+				    availablePoints -= givenPoints;
+				    document.getElementById("points").innerHTML = grantedPoints;
+				}
 
 				// Set given points to 0
 
