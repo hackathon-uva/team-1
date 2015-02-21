@@ -1,6 +1,27 @@
 /* Styles go here */
 body {
   width: 100%;
+  background: black;  
+}
+
+.navbar {
+  border-radius: 0;
+  position: fixed;
+  width: 400px;
+  z-index: 1000;
+}
+
+.appContainer {
+  position:relative;
+  overflow:scroll;
+  margin:40px auto;
+  width:400px;
+  height: 600px;
+  background: #d0d0d0;
+}
+
+.viewContainer {
+  padding-top: 60px;
 }
 
 /* GENERAL RULES (REQUIRED) */
@@ -29,19 +50,6 @@ body {
   text-align:center;
   font-size:40px;
   color:#EEE;
-}
-
-.postsContainer {
-  width: 400px;
-}
-
-
-.appcontainer {
-  position:relative;
-  margin:40px auto;
-  width:275px;
-  height: 550px;
-  background: #d0d0d0;
 }
 
 /* TAB RULES */
