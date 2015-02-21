@@ -24,8 +24,7 @@ body {
 }
 
 .viewContainer {
-  padding-top: 70px;
-  background-color: rgb(208, 208, 208);
+  padding-top: 80px;
 }
 
 
@@ -35,6 +34,7 @@ body {
   border-radius: 0;
   position: fixed;
   width: 400px;
+  height: 50px;
   z-index: 1000;
   border: 0;
   background-color:#EEE;
@@ -74,6 +74,17 @@ body {
   background: #004E92;
   border-radius: 10px;
   color: white;
+}
+
+/* Goals Progress Style*/
+
+.goalProgression {
+  margin-top: 50px;
+  height: 10px;
+  width: 400px;
+  background: linear-gradient(90deg, #BC0031, #BC0031 60%, #EEE 61%);
+  border-bottom: 3px solid #BC0031;
+
 }
 
 /* POST Styles */
