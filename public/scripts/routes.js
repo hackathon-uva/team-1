@@ -85,7 +85,9 @@
         templateUrl: "../templates/profile.html",
         controller: "ProfileCtrl as profile"
       });
-    $urlRouterProvider.when('/', '/feed');
+
+    $urlRouterProvider.when('/', '/#/feed');
+
   }
   
 })();
