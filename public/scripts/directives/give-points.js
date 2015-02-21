@@ -47,13 +47,12 @@ angular.module('kudos').directive('givePoints', function() {
 				if(availablePoints >= givenPoints){
 					grantedPoints += givenPoints;
 				    availablePoints -= givenPoints;
-				    document.getElementById("points").innerHTML = grantedPoints;
+				    console.log('pointsGiven');
 				}
 
 				// Set given points to 0
-
-				// div.innerHTML = "";
-				// givenPoints = 0;
+				// element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ (points) +'%, rgb(208, 208, 208) '+ ((points) + (0.1*points))+'%)';
+				givenPoints = 0;
 			}
 
 			function done(event) {
