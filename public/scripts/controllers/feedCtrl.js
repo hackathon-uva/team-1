@@ -7,7 +7,7 @@
 	  	var vm = this;
 
 	  	var course = { 
-	  		name: 'wetenschapsfilosofie',
+	  		name: 'Wetenschapsfilosofie',
 	  		teacher: 'Jaques Bos',
 	  		feed: [
 	  			{
