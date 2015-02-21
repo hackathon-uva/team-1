@@ -31,7 +31,6 @@
 
 	  	vm.shop = shopData;
 
-
 		return vm;
 	}
 
