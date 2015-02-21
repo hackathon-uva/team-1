@@ -1,18 +1,20 @@
 <div class="postsContainer">
-    <div class="media post">
-        <div ng-repeat="post in feed.f" class="media-left media-middle">
-            <a href="#">
+    <div ng-repeat="post in feed.course.feed" class="media">
+        <div class="media-left media-middle">
+             <a href="#">
+                <img class="media-object" src="..." alt="...">
             </a>
         </div>
         <div class="media-body">
-            <h4 class="media-heading date">11.45 - 2 Februari </h4>
-            <p class="message"> Zie hier de samenvatting van 'Nederland en de Wereld' van Johan Huizinga en Piet de Rooy. </p>
-            <p class="author">Johannnes Schouwenberg</p>
+            <h1 class="title-text">{{post.title}}</h1>
+            <p class="tekst">{{post.contents}}</p>
+            <p class="author">{{post.author}}</p>
+            <p>{{posts.date}}</p>
         </div>
     </div>
+</div>
 
 
-    <div class="postCreator">
-    </div>
+<div class="postCreator">
 
 </div>

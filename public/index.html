@@ -11,32 +11,24 @@
 </head>
 
 <body ng-cloak ng-app="kudos">
-
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div >
-            <ul class="nav navbar-nav">
+    
+    <div class="appContainer">
+        <nav>
+            <ul>                    
                 <li ui-sref="feed" ui-sref-active="active"><a href>Feed</a></li>
                 <li ui-sref="users" ui-sref-active="active"><a href>Users</a></li>
                 <li ui-sref="shop" ui-sref-active="active"><a href>Shop</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><img src="http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg" width="25" height="25" class="img-circle hidden-xs" style="margin: 10px;"></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+        </nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <main ui-view autoscroll class="viewContainer"></main>
-
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <main ui-view autoscroll class="viewContainer"></main>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
 
 	<script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
