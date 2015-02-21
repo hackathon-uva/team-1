@@ -123,6 +123,11 @@ body {
 }
 
 /* USERS */
+
+.usersList {
+  list-style: none;
+}
+
 .avatar {
   border-radius: 300px;
   width: 50px;

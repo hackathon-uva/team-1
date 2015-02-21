@@ -69,7 +69,12 @@
       .state("users", {
         url: "/users",
         templateUrl: "../templates/users.html",
-        controller: "UserCtrl as user"
+        controller: "UserCtrl as user",
+        resolve: {
+          students: function(){
+            return courseData.students;
+          }
+        }
       })
       .state("shop", {
         url: "/shop",
