@@ -3,11 +3,23 @@
         <li ng-repeat="item in shop.shop" class="item">
             <div class="jumbotron">
                 <div class="shopInfo">
-                    <img class="itemPic img-responsive" src="http://i.imgur.com/Iy9axC7.png"/>
-                    <div class="itemBox">
-                        <h3>{{item.name}}</h3>
-                        <p class="tekst">{{item.contents}}</p>
-                        <p><a class="btn btn-primary btn-lg" href="#" role="button">This is my goal!</a></p>
+                    <div class="itemBox clearfix media">
+                        <div class="media-left media-middle">
+                            <img class="itemPic" src="http://i.imgur.com/Iy9axC7.png"/>
+                        </div>
+                        <div class="media-body">
+                            <h3>{{item.name}}</h3>
+                            <p class="tekst">{{item.contents}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <h3>Cost: {{item.pointsRequired}}</h3>
+                        <button class="btn btn-primary btn-md btn-float" href="#" role="button">Set goal</button>
+                        <button class="btn btn-primary btn-md btn-float" href="#" role="button">Cash in</button>
+                    </div>
+                    <div>
+                        <p>progess:</p>
+                        <div class="progressLine"></div>
                     </div>
                 </div>
             </div>

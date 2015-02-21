@@ -218,13 +218,8 @@ body {
 /* SHOP */
 
 .itemPic {
-  display:inline-block;
-  margin: 10px;
-  width: 20%;
-  float: left;
-}
-.itemBox {
-  width: 80%;
+  width: 75px;
+  height: 75px;
 }
 
 .container-fluid .jumbotron {
@@ -233,4 +228,16 @@ body {
 
 .jumbotron p {
   font-size: 16px;
+}
+
+.btn-float {
+  margin: 10px;
+  float: left;
+}
+
+.progressLine {
+  height: 10px;
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #BC0031, #BC0031 60%, #EEE 61%);
 }

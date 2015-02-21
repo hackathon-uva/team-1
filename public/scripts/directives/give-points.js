@@ -34,10 +34,12 @@ angular.module('kudos').directive('givePoints', function() {
 				  	// console.log('statement evaluates true');
 				    givenPoints = Math.round(percentageOfPoints / 10);
 				    console.log('givenPoints: ' + givenPoints);
-				    element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((percentageOfPoints) - 1) +'%, rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
+				    // Weak selector! Needs to be selected differently
+				    element.children()[2].style.background = 'linear-gradient(90deg, #BC0031 '+ ((percentageOfPoints) - 1) +'%, rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
 				}
 				else {
-					element.children()[3].style.background = 'linear-gradient(90deg, #BC0031 '+ ((availablePoints*10) - 1) +'%, rgba(0,0,0,0.5) '+ ((availablePoints*10) + 1)+'%, rgba(0,0,0,0.5) '+ ((percentageOfPoints) - 1) +'% ,rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
+					// Weak selector! Needs to be selected differently
+					element.children()[2].style.background = 'linear-gradient(90deg, #BC0031 '+ ((availablePoints*10) - 1) +'%, rgba(0,0,0,0.5) '+ ((availablePoints*10) + 1)+'%, rgba(0,0,0,0.5) '+ ((percentageOfPoints) - 1) +'% ,rgb(208, 208, 208) '+ ((percentageOfPoints) + 1)+'%)';
 				}
 			}
 
@@ -55,13 +57,15 @@ angular.module('kudos').directive('givePoints', function() {
 				}
 
 				// Set given points to 0
-				element.children()[3].style.background = 'rgb(208, 208, 208)';
+				// Weak selector! Needs to be selected differently
+				element.children()[2].style.background = 'rgb(208, 208, 208)';
 				givenPoints = 0;
 			}
 
 			function mouseOut(event) {
 			  	// Set distributed points to 0
-			  	element.children()[3].style.background = 'rgb(208, 208, 208)';
+			  	// Weak selector! Needs to be selected differently
+			  	element.children()[2].style.background = 'rgb(208, 208, 208)';
 				givenPoints = 0;
 			}
         }
